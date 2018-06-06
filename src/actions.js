@@ -24,6 +24,10 @@ export const updateQuoteSuccess = (quote) => {
     return {type: UPDATE_SUCCESS, payload: quote}
 }
 
+export const updateQuoteFailure = (error) => {
+    return {type: UPDATE_FAILED, payload: error}
+}
+
 export const clearQuotes= () => {return {type:CLEAR_QUOTES}}
 export const clearErrors = () => {return {type:CLEAR_ERRORS}}
 

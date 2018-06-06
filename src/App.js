@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 
 import Button from './components/button'
 import Quotes from './components/quotes'
+import Errors from './components/errors'
 import * as actions from './actions';
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
     }
     
     render() {
-        const {quotes, language} = this.props;
+        const {quotes, language, errors} = this.props;
         const langNames = {'en': 'English', 'ru': 'Russian'}
         const has_errors = this.props.errors.length > 0
         
@@ -52,6 +53,7 @@ class App extends Component {
                     Clear Errors
                 </Button>
                 <Quotes quotes={quotes}></Quotes>
+                <Errors errors={errors}/>
             </div>
         );
     }
