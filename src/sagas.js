@@ -13,7 +13,8 @@ import {
 } from 'redux-saga/effects';
 
 import * as actions from './actions';
-import {getActiveSpeed} from './selectors';
+import * as api from './api'
+import {getActiveSpeed, getLang} from './selectors';
 
 // https://github.com/redux-saga/redux-saga/blob/master/docs/advanced/Channels.md
 function timer(ms) {
@@ -54,9 +55,9 @@ function* timerSaga() {
 
 function* update_quote() {
     console.log('Get new quote')
-    const quote = yield call(fetch, 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en')
-    //yield put(actions.addQuote(quote))
-    console.log('Quote received')
+    const lang = yield select(getLang)
+    const quote = yield call(api.fetch_quote, lang)
+    console.log(`Quote received ${JSON.stringify(quote)}`)
     yield put(actions.updateQuoteSuccess(quote))
 }
 

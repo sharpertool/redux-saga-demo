@@ -21,7 +21,7 @@ export const updateQuote = () => {
 }
 
 export const updateQuoteSuccess = (quote) => {
-    return {type: UPDATE_SUCCESS, quote}
+    return {type: UPDATE_SUCCESS, payload: quote}
 }
 
 export const clearQuotes= () => {return {type:CLEAR_QUOTES}}
@@ -36,5 +36,5 @@ export const setLanguage = (lang='en') => {
 }
 
 export const addQuote = (quote) => {
-    return {type: ADD_QUOTE, quote}
+    return {type: ADD_QUOTE, payload: quote}
 }
